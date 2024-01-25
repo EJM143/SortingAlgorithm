@@ -1,9 +1,18 @@
 
 package SortingAlgorithms;
+
+/**
+ * Quicksort algorithms with various pivot options
+ */
 public class Quicksort {
     //select pivot (1 of 3 options)
     //partition
     //sort
+
+    /**
+     *
+     * @param arr
+     */
     public static void sort_firstPivot(int[] arr) {
         if (arr != null && arr.length > 1) {
             sort_firstPivot(arr, 0, 0, arr.length - 1);
