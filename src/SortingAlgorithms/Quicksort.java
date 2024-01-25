@@ -22,10 +22,18 @@ public class Quicksort {
     private static void sort_firstPivot(int[] arr, int pivotIndex, int first, int last) {
         //base case: first >= last (one or zero items can't be split)
         //recursive case: put pivot in place and call recursively
+        //if two items only, sort and exit
+        if (last - first == 1) {
+            if (arr[last] < arr[first]) {
+                swap(arr, first, last);
+            }
+            return;
+        }
+        //if more than 2 items, do the thing
         if (first < last) {
             pivotIndex = partition(arr, pivotIndex, 0, arr.length - 1);
-            sort_firstPivot(arr, pivotIndex, first, pivotIndex -1);
-            sort_firstPivot(arr, pivotIndex, pivotIndex + 1, last);
+            sort_firstPivot(arr, first, first, pivotIndex -1);
+            sort_firstPivot(arr, pivotIndex + 1, pivotIndex + 1, last);
         }
     }
 
@@ -56,7 +64,7 @@ public class Quicksort {
         int leftIndex = first;
         int rightIndex = last - 1;
         while (leftIndex < rightIndex) {
-            while (leftIndex < last && arr[leftIndex] < arr[last]) {
+            while (leftIndex < last && arr[leftIndex] <= arr[last]) {
                 leftIndex++;
             }
             while (rightIndex > leftIndex && arr[rightIndex] > arr[last]) {
