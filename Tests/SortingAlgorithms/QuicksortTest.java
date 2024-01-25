@@ -27,8 +27,18 @@ public class QuicksortTest {
         Quicksort.sort_firstPivot(arr);
         assertArrayEquals(new int[]{6, 9}, arr);
 
+        //should sort two item array
+        arr = new int[]{9,6};
+        Quicksort.sort_firstPivot(arr);
+        assertArrayEquals(new int[]{6, 9}, arr);
+
         //should sort unsorted arr
         arr = new int[]{9,6, 3, 1, 7};
+        Quicksort.sort_firstPivot(arr);
+        assertArrayEquals(new int[]{1, 3, 6, 7, 9}, arr);
+
+        //should sort unsorted arr
+        arr = new int[]{1,6, 3, 7, 9};
         Quicksort.sort_firstPivot(arr);
         assertArrayEquals(new int[]{1, 3, 6, 7, 9}, arr);
     }
