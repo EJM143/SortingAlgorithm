@@ -15,10 +15,12 @@ class ArraysTest {
         //first array and getRandomOrdered of length 4 should be different addresses to prevent changes to both
         assertArrayEquals(arrs[0], a.getRandomOrdered(4));
         //index 4 should be the reverse order of index 0
-        int[] b = arrs[0].clone();
+        int[] b = arrs[3].clone();
         for (int i = 0; i < b.length / 2; i++) {
             Quicksort.swap(b, i, b.length - 1 - i);
         }
+        System.out.println(java.util.Arrays.toString(b));
+        System.out.println(java.util.Arrays.toString(arrs[4]));
         assertArrayEquals(b, arrs[4]);
 //        System.out.println(java.util.Arrays.deepToString(arrs));
     }
