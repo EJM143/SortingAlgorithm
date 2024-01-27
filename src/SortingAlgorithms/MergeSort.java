@@ -1,3 +1,5 @@
+package SortingAlgorithms;
+
 public class MergeSort implements SortingAlgoInterface {
     /**
      * Merges two sorted arrays into a single sorted arrays
@@ -69,7 +71,7 @@ public class MergeSort implements SortingAlgoInterface {
      */
     @Override
     public String getName() {
-        return "MergeSort";
+        return "SortingAlgorithms.MergeSort";
     }
 
 }

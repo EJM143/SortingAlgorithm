@@ -1,5 +1,7 @@
+package SortingAlgorithms;
+
 /**
- * Class implementation to sort an array of integers using ShellSort
+ * Class implementation to sort an array of integers using SortingAlgorithms.ShellSort
  *
  * @author KRB
  * @version 1.1
@@ -36,6 +38,6 @@ public class ShellSort implements SortingAlgoInterface{
      */
     @Override
     public String getName() {
-        return "ShellSort";
+        return "SortingAlgorithms.ShellSort";
     }
 }

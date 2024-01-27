@@ -1,10 +1,12 @@
+package SortingAlgorithms;
+
 /**
- * Class implementation to sort an array of integers using BubbleSort
+ * Class implementation to sort an array of integers using SortingAlgorithms.BubbleSort
  *
  * @author KRB
  * @version 1.1
  */
-public class BubbleSort implements SortingAlgoInterface{
+public class BubbleSort implements SortingAlgoInterface {
     /**
      * Method to sort a given array of integers
      * @param array Desired array of integers to sort
@@ -19,7 +21,8 @@ public class BubbleSort implements SortingAlgoInterface{
         int size = array.length;
 
         for (int i = 0; i < size - 1; i++) {
-            for (int j = 0; j < size - i; j++) {
+            for (int j = 0; j < size - i - 1; j++) {
+               // System.out.println(i + ", "+ j);
                 if (array[j + 1] < array[j]) {
                     int helper = array[j];
                     array[j] = array[j + 1];
@@ -35,6 +38,6 @@ public class BubbleSort implements SortingAlgoInterface{
      */
     @Override
     public String getName() {
-        return "BubbleSort";
+        return "SortingAlgorithms.BubbleSort";
     }
 }
