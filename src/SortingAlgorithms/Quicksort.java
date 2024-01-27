@@ -1,35 +1,41 @@
-
 package SortingAlgorithms;
 
 /**
  * Quicksort algorithms with various pivot options
  */
-public class Quicksort {
+public class Quicksort implements SortingAlgoInterface {
     //select pivot (1 of 3 options)
     //partition
     //sort
+
+    @Override
+    public String getName() {
+        return "QuickSort, First Index Pivot";
+    }
 
     public static void sort_partial(int[] arr, int startIndex, int endIndex) {
         if (arr != null && arr.length > 1 &&
                 startIndex >= 0 && startIndex < arr.length && startIndex <= endIndex &&
                 endIndex < arr.length) {
-            sort_firstPivot(arr, startIndex, startIndex, endIndex);
-        }
-    }
-    public static void sort_firstPivot(int[] arr) {
-        if (arr != null && arr.length > 1) {
-            sort_firstPivot(arr, 0, 0, arr.length - 1);
+            sort(arr, startIndex, startIndex, endIndex);
         }
     }
 
-    private static void sort_firstPivot(int[] arr, int pivotIndex, int first, int last) {
+    @Override
+    public static void sort(int[] arr) {
+        if (arr != null && arr.length > 1) {
+            sort(arr, 0, 0, arr.length - 1);
+        }
+    }
+
+    private static void sort(int[] arr, int pivotIndex, int first, int last) {
         //base case: first >= last (one or zero items can't be split)
         //recursive case: put pivot in place and call recursively
         //if more than 2 items, do the thing
         if (first < last) {
             pivotIndex = partition(arr, pivotIndex, first, last);
-            sort_firstPivot(arr, first, first, pivotIndex -1);
-            sort_firstPivot(arr, pivotIndex + 1, pivotIndex + 1, last);
+            sort(arr, first, first, pivotIndex -1);
+            sort(arr, pivotIndex + 1, pivotIndex + 1, last);
         }
     }
 

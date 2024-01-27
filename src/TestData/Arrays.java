@@ -31,7 +31,7 @@ public class Arrays {
             Quicksort.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
             arrays[index + 3] = arrays[index + 2].clone();
             //sort 100%
-            Quicksort.sort_firstPivot(arrays[index + 3]);
+            Quicksort.sort(arrays[index + 3]);
 
             //reverse ordered array
             arrays[index + 4] = new int[length];
