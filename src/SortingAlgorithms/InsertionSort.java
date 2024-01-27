@@ -1,3 +1,5 @@
+package SortingAlgorithms;
+
 public class InsertionSort implements SortingAlgoInterface {
     /**
      * Sorts the array using the insertion sort algorithm

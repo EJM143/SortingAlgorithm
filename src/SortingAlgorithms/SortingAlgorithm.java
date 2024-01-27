@@ -1,10 +1,10 @@
-package src;
+package SortingAlgorithms;
 public class SortingAlgorithm {
-
+/*
     public static void main(String[] args) {
         // Selection Sort
         int[] selectionSortArray = {4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
-        SelectionSort selectionSortObj = new SelectionSort();
+        SortingAlgorithms.SelectionSort selectionSortObj = new SortingAlgorithms.SelectionSort();
         selectionSortObj.sort(selectionSortArray);
         System.out.println("Selection Sort: Sorted array");
         printArray(selectionSortArray);
@@ -17,7 +17,7 @@ public class SortingAlgorithm {
 
         // Heap Sort
         int[] heapSortArray = {4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
-        HeapSort heapSortObj = new HeapSort();
+        SortingAlgorithms.HeapSort heapSortObj = new SortingAlgorithms.HeapSort();
         heapSortObj.sort(heapSortArray);
         System.out.println("Heap Sort: Sorted array");
         printArray(heapSortArray);
@@ -36,5 +36,8 @@ public class SortingAlgorithm {
         return array;
     }
 
-    // SelectionSort and HeapSort classes and methods go here
+    // SortingAlgorithms.SelectionSort and SortingAlgorithms.HeapSort classes and methods go here
+
+
+ */
 }

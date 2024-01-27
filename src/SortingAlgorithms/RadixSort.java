@@ -1,11 +1,13 @@
+package SortingAlgorithms;
+
 import java.util.Arrays;
 
 public class RadixSort implements SortingAlgoInterface{
     /**
      * A function to get the maximum value in the array
      * @param array   input array
-     * @param n     size of the array
-     * @return      maximum value in the array
+     * @param n       size of the array
+     * @return        maximum value in the array
      */
     static int getMax(int array[], int n) {
         int mx = array[0];
@@ -20,23 +22,23 @@ public class RadixSort implements SortingAlgoInterface{
      * base to the digit with the exp
      * @param array       input array
      * @param n         size of the array
-     * @param exp       current digit position
+     * @param expo       current digit position
      */
-    static void countSort(int[]array, int n, int exp) {
+    static void cSort(int[]array, int n, int expo) {
         int[]output = new int[n];
         int i;
         int[] count = new int[10];
         Arrays.fill(count, 0);
 
         for (i = 0; i < n; i++) {
-            count[(array[i] / exp) % 10]++;
+            count[(array[i] / expo) % 10]++;
         }
         for (i = 1; i < 10; i++) {
             count[i] += count[i - 1];
         }
         for (i = n - 1; i >= 0; i--) {
-            output[count[(array[i] / exp) % 10] - 1] = array[i];
-            count[(array[i] / exp) % 10]--;
+            output[count[(array[i] / expo) % 10] - 1] = array[i];
+            count[(array[i] / expo) % 10]--;
         }
         for (i = 0; i < n; i++) {
             array[i] = output[i];
@@ -53,7 +55,7 @@ public class RadixSort implements SortingAlgoInterface{
         int n = array.length;
         int m = getMax(array, n);
         for (int exp = 1; m / exp > 0; exp *= 10) {
-            countSort(array, n, exp);
+            cSort(array, n, exp);
         }
     }
 
@@ -63,6 +65,6 @@ public class RadixSort implements SortingAlgoInterface{
      */
     @Override
     public String getName() {
-        return "RadixSort";
+        return "SortingAlgorithms.RadixSort";
     }
 }

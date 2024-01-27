@@ -84,6 +84,16 @@ public class Arrays {
         return arrays.clone();
     }
 
+    public static String[] getArrayOrderingStrategy(){
+        return new String[] {
+            "Random numbers",
+            "Sorted 50%",
+            "Sorted 75%",
+            "Sorted 100%",
+            "Reverse Sorted",
+        };
+    }
+
     public int[] getRandomOrdered(int length) {
         return arrays[lengthToIndex(entryToLength(length))].clone();
     }

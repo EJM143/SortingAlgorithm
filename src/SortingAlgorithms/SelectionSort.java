@@ -1,7 +1,8 @@
-package src;
-import java.io.*;
-public class SelectionSort {
-    void sort(int arr[]) {
+package SortingAlgorithms;
+
+public class SelectionSort implements SortingAlgoInterface{
+    @Override
+    public void sort(int arr[]) {
         int n = arr.length;
 
         // One by one move boundary of unsorted subarray
@@ -13,14 +14,19 @@ public class SelectionSort {
                 if (arr[smallest] > arr[j]) {
                     //Update smallest index if a smaller element is found
                     smallest = j;
-
+                }
                     // Swap the found minimum element with the first element
 
-                    int temp = arr[smallest];
-                    arr[smallest] = arr[i];
-                    arr[i] = temp;
-                }
+                int temp = arr[smallest];
+                arr[smallest] = arr[i];
+                arr[i] = temp;
+
         }
+    }
+
+    @Override
+    public String getName() {
+        return "Selection Sort";
     }
 }
 

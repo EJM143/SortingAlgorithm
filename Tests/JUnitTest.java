@@ -1,54 +1,60 @@
+import SortingAlgorithms.*;
 import org.junit.jupiter.api.Test;
-import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 public class JUnitTest {
-    public static boolean contains(int[] data, int target) {
-        for (int datum : data) {
-            if (datum == target) {
-                return true;
-            }
-        }
-        return false;
-    }
-    static int[] makeList() {
-        Random random = new Random();
-        int bound = 1000;                //upper bound of values
-        int[] list = new int[bound / 2];
-        int num;
-        for (int i = 0; i < list.length; i++) {
-            num = random.nextInt(bound);
-            if (!(contains(list, num))) {
-                list[i] = num;
-            } else {
-                i--;
-            }
-        }
-        return list;
-    }
-    @Test
+
+
     void testAnySort(SortingAlgoInterface obj) {
 
-        int[] list = makeList();
+        // int[] list = makeList();
 
-        System.out.println();
-        System.out.println(" \t \t" + obj.getName() + " \t \t");
-        System.out.println("==============================================");
-        //Prints the first 10 of unsorted list to console
-        for (int i = 0; i < 10; i++) {
-            System.out.print(list[i] + " ");
+        int [][] arrays = new TestData.Arrays().getAllArrays();
+        String[] arrayType = TestData.Arrays.getArrayOrderingStrategy();
+        int index = 0;
+        for(int j = 0; j < arrays.length; j++, index++) {
+            System.out.println();
+            System.out.println(" \t \t" + obj.getName() + " Array Size = "
+                    + arrays[j].length +" Array Type: "+arrayType[index%arrayType.length] + " \t \t");
+            System.out.println("=======================================================");
+            //Prints the first 10 of unsorted list to console
+            for (int i = 0; i < 10 && i < arrays[j].length; i++) {
+                System.out.print(arrays[j][i] + " ");
+            }
+            System.out.println();
+
+            obj.sort(arrays[j]);
+
+            // Checking if sorting really worked
+            for (int i = 1; i < arrays[j].length; i++) {
+                if(!(arrays[j][i - 1] <= arrays[j][i])){
+                    System.out.println(i+ ":" + arrays[j][i]  + "," + (i-1) + ":" + arrays[j][i - 1] );
+                    assertTrue(false);
+                }
+
+            }
+
+            System.out.println("=======================================================");
         }
-        System.out.println();
-        obj.sort(list);
-        for (int i = 1; i < list.length; i++) {
-            assertTrue(list[i - 1] < list[i]);
-        }
-        // Prints the first 15 values to console
-        for (int i = 0; i < 15; i++) {
-            System.out.print(list[i] + " ");
-        }
-        System.out.println();
-        System.out.println("==============================================");
+    }
+
+    @Test
+    void testBubbleSort() {
+        BubbleSort obj = new BubbleSort();
+        testAnySort(obj);
+    }
+    @Test
+    void testBucketSort() {
+        BucketSort obj = new BucketSort();
+        testAnySort(obj);
+    }
+
+    @Test
+    void testCountSort() {
+        CountSort obj = new CountSort();
+        testAnySort(obj);
     }
     @Test
     void testInsertionSort() {
@@ -65,4 +71,27 @@ public class JUnitTest {
         RadixSort obj = new RadixSort();
         testAnySort(obj);
     }
+
+    @Test
+    void testShellSort() {
+        ShellSort obj = new ShellSort();
+        testAnySort(obj);
+    }
+
+    @Test
+    void testHeapSort() {
+        HeapSort obj = new HeapSort();
+        testAnySort(obj);
+    }
+    @Test
+    void testSelectionSort() {
+        SelectionSort obj = new SelectionSort();
+        testAnySort(obj);
+    }
+//    @Test
+//    void testQuicksort() {
+//        Quicksort obj = new Quicksort();
+//        testAnySort(obj);
+//    }
 }
+
