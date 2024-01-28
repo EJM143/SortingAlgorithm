@@ -1,83 +1,63 @@
-
 package SortingAlgorithms;
 
 /**
  * Quicksort algorithms with various pivot options
  */
-public class Quicksort {
+public class Quicksort implements SortingAlgoInterface {
     //select pivot (1 of 3 options)
     //partition
     //sort
 
-    /**
-     *
-     * @param arr
-     */
-    public static void sort_firstPivot(int[] arr) {
-        if (arr != null && arr.length > 1) {
-            sort_firstPivot(arr, 0, 0, arr.length - 1);
+    @Override
+    public String getName() {
+        return "QuickSort, First Index Pivot";
+    }
+
+    public static void sort_partial(int[] arr, int startIndex, int endIndex) {
+        if (arr != null && arr.length > 1 &&
+                startIndex >= 0 && startIndex < arr.length && startIndex <= endIndex &&
+                endIndex < arr.length) {
+            sort(arr, startIndex, startIndex, endIndex);
         }
     }
 
-    private static void sort_firstPivot(int[] arr, int pivotIndex, int first, int last) {
+    @Override
+    public static void sort(int[] arr) {
+        if (arr != null && arr.length > 1) {
+            sort(arr, 0, 0, arr.length - 1);
+        }
+    }
+
+    private static void sort(int[] arr, int pivotIndex, int first, int last) {
         //base case: first >= last (one or zero items can't be split)
         //recursive case: put pivot in place and call recursively
-        //if two items only, sort and exit
-        if (last - first == 1) {
-            if (arr[last] < arr[first]) {
-                swap(arr, first, last);
-            }
-            return;
-        }
         //if more than 2 items, do the thing
         if (first < last) {
-            pivotIndex = partition(arr, pivotIndex, 0, arr.length - 1);
-            sort_firstPivot(arr, first, first, pivotIndex -1);
-            sort_firstPivot(arr, pivotIndex + 1, pivotIndex + 1, last);
+            pivotIndex = partition(arr, pivotIndex, first, last);
+            sort(arr, first, first, pivotIndex -1);
+            sort(arr, pivotIndex + 1, pivotIndex + 1, last);
         }
     }
 
 
     private static int partition(int[] arr, int pivotIndex, int first, int last) {
-//        //swap pivot with last
-//        int pivot = arr[pivotIndex];
-//        arr[pivotIndex] = arr[last];
-//        arr[last] = pivot;
-//        //go from left and right, swap as needed
-//        int left = first;
-//        int right = last - 1;
-//        while (left < right) {
-//            if (arr[left] > pivot && arr[right] < pivot) {
-//                int leftVal = arr[left];
-//                arr[left] = arr[right];
-//                arr[right] = leftVal;
-//            }
-//            if (arr[left] <= pivot) left++;
-//            if (arr[right] >= pivot) right--;
-//        }
-//        //place pivot at left( right + 1)
-//        arr[last] = arr[left];
-//        arr[left] = pivot;
-//        //return new pivot index
-//        return last;
+        //swap pivot with last index
+        //wall = first
+        //for every item including wall up to pivot
+        //if less than pivot, swap with wall++
+        //else, next item
+        //swap pivot and wall
+        //return wall
         swap(arr, pivotIndex, last);
-        int leftIndex = first;
-        int rightIndex = last - 1;
-        while (leftIndex < rightIndex) {
-            while (leftIndex < last && arr[leftIndex] <= arr[last]) {
-                leftIndex++;
-            }
-            while (rightIndex > leftIndex && arr[rightIndex] > arr[last]) {
-                rightIndex--;
-            }
-            if (leftIndex < rightIndex) {
-                swap(arr, leftIndex, rightIndex);
-                leftIndex++;
-                rightIndex--;
+        int wallIndex = first;
+        for (int index = first; index < last; index++) {
+            if (arr[index] < arr[last]) {
+                swap(arr, index, wallIndex);
+                wallIndex++;
             }
         }
-        swap(arr, last, leftIndex);
-        return leftIndex;
+        swap(arr, last, wallIndex);
+        return wallIndex;
     }
     public void sort_randomPivot(int[] arr) {}
     public void sort_medianOf3Pivot(int[] arr) {}

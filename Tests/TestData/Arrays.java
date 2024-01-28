@@ -23,12 +23,15 @@ public class Arrays {
         Random random = new Random();
         for (int length = MIN_SIZE; length <= MAX_SIZE; length *= SIZE_FACTOR) {
             arrays[index] = random.ints(length, MIN_INT, MAX_INT).toArray(); //random
-            arrays[index + 1] = arrays[index].clone(); //50%
-            //TODO: sort 50%
+            arrays[index + 1] = arrays[index].clone();
+            //50%
+            Quicksort.sort_partial(arrays[index + 1], 0, (arrays[index + 1].length - 1) / 2);
             arrays[index + 2] = arrays[index + 1].clone();
-            //TODO: sort 75%
+            //sort 75%
+            Quicksort.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
             arrays[index + 3] = arrays[index + 2].clone();
-            //TODO: sort 100%
+            //sort 100%
+            Quicksort.sort(arrays[index + 3]);
 
             //reverse ordered array
             arrays[index + 4] = new int[length];
