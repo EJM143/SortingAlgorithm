@@ -22,7 +22,6 @@ public class BubbleSort implements SortingAlgoInterface {
 
         for (int i = 0; i < size - 1; i++) {
             for (int j = 0; j < size - i - 1; j++) {
-               // System.out.println(i + ", "+ j);
                 if (array[j + 1] < array[j]) {
                     int helper = array[j];
                     array[j] = array[j + 1];
@@ -38,6 +37,6 @@ public class BubbleSort implements SortingAlgoInterface {
      */
     @Override
     public String getName() {
-        return "SortingAlgorithms.BubbleSort";
+        return "BubbleSort";
     }
 }

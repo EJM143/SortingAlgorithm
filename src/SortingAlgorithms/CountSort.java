@@ -1,6 +1,7 @@
-package SortingAlgorithms;//package src;
+package SortingAlgorithms;
+import java.util.Arrays;
 
-public class CountSort implements SortingAlgoInterface{
+public class CountSort implements SortingAlgoInterface {
     @Override
     public void sort(int[] inputArray) {
         //size of the input array
@@ -35,12 +36,11 @@ public class CountSort implements SortingAlgoInterface{
         for (int i = 0; i < N; i++) {
             inputArray[i] = outputArray[i];
         }
-        return ;
+        return outputArray;
     }
 
     @Override
     public String getName() {
-        return "SortingAlgorithms.CountSort";
+        return "CountSort";
     }
-
 }

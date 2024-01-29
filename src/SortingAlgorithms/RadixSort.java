@@ -1,5 +1,4 @@
 package SortingAlgorithms;
-
 import java.util.Arrays;
 
 public class RadixSort implements SortingAlgoInterface{
@@ -65,6 +64,6 @@ public class RadixSort implements SortingAlgoInterface{
      */
     @Override
     public String getName() {
-        return "SortingAlgorithms.RadixSort";
+        return "RadixSort";
     }
 }
