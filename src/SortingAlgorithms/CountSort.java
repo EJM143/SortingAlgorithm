@@ -1,8 +1,9 @@
-package src;
+package SortingAlgorithms;
 import java.util.Arrays;
 
-public class  CountSort {
-    public static int[] countSort(int[] inputArray) {
+public class CountSort implements SortingAlgoInterface {
+    @Override
+    public void sort(int[] inputArray) {
         //size of the input array
         int N = inputArray.length;
         //Maximum value in the input array
@@ -32,9 +33,14 @@ public class  CountSort {
             outputArray[countArray[inputArray[i]] - 1] = inputArray[i];
             countArray[inputArray[i]]--;
         }
-
+        for (int i = 0; i < N; i++) {
+            inputArray[i] = outputArray[i];
+        }
         return outputArray;
     }
 
-
+    @Override
+    public String getName() {
+        return "CountSort";
+    }
 }

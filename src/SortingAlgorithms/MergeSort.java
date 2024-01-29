@@ -1,4 +1,5 @@
-package src;
+package SortingAlgorithms;
+
 public class MergeSort implements SortingAlgoInterface {
     /**
      * Merges two sorted arrays into a single sorted arrays
@@ -72,5 +73,4 @@ public class MergeSort implements SortingAlgoInterface {
     public String getName() {
         return "MergeSort";
     }
-
 }

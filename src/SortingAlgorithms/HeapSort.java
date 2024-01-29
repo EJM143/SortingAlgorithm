@@ -1,8 +1,7 @@
-package src;
+package SortingAlgorithms;
 // Java program for implementation of Heap Sort
 
-public class HeapSort {
-
+public class HeapSort implements SortingAlgoInterface{
     /**
      * Sort the array using heap sort
      * @param arr to be sorted
@@ -54,7 +53,8 @@ public class HeapSort {
         }
     }
 
-
-
-
+    @Override
+    public String getName() {
+        return "Heap Sort";
+    }
 }

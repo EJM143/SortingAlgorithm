@@ -1,3 +1,5 @@
+package SortingAlgorithms;
+
 /**
  * Class implementation to sort an array of integers using ShellSort
  *

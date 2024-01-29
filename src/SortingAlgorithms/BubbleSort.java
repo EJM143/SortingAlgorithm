@@ -1,12 +1,12 @@
-package src;
+package SortingAlgorithms;
 
 /**
- * Class implementation to sort an array of integers using BubbleSort
+ * Class implementation to sort an array of integers using SortingAlgorithms.BubbleSort
  *
  * @author KRB
  * @version 1.1
  */
-public class BubbleSort implements SortingAlgoInterface{
+public class BubbleSort implements SortingAlgoInterface {
     /**
      * Method to sort a given array of integers
      * @param array Desired array of integers to sort
