@@ -1,6 +1,7 @@
 package SortingAlgorithms;
+import java.io.*;
 
-public class SelectionSort implements SortingAlgoInterface{
+public class SelectionSort implements SortingAlgoInterface {
     @Override
     public void sort(int arr[]) {
         int n = arr.length;
@@ -29,6 +30,3 @@ public class SelectionSort implements SortingAlgoInterface{
         return "Selection Sort";
     }
 }
-
-
-

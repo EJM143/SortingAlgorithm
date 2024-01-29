@@ -71,7 +71,6 @@ public class MergeSort implements SortingAlgoInterface {
      */
     @Override
     public String getName() {
-        return "SortingAlgorithms.MergeSort";
+        return "MergeSort";
     }
-
 }
