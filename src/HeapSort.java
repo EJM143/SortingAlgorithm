@@ -2,6 +2,11 @@ package src;
 // Java program for implementation of Heap Sort
 
 public class HeapSort {
+
+    /**
+     * Sort the array using heap sort
+     * @param arr to be sorted
+     */
     public void sort(int arr[])
     {
         int N = arr.length;

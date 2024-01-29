@@ -1,3 +1,5 @@
+package src;
+
 /**
  * Class implementation to sort an array of integers using BubbleSort
  *

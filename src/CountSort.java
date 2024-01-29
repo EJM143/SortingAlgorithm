@@ -1,7 +1,7 @@
 package src;
 import java.util.Arrays;
 
-public class CountSort {
+public class  CountSort {
     public static int[] countSort(int[] inputArray) {
         //size of the input array
         int N = inputArray.length;
