@@ -1,3 +1,4 @@
+package src;
 public class MergeSort implements SortingAlgoInterface {
     /**
      * Merges two sorted arrays into a single sorted arrays
