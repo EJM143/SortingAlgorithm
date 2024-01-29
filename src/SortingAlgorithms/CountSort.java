@@ -36,7 +36,7 @@ public class CountSort implements SortingAlgoInterface {
         for (int i = 0; i < N; i++) {
             inputArray[i] = outputArray[i];
         }
-        return outputArray;
+        return;
     }
 
     @Override

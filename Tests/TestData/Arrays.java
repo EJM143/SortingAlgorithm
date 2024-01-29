@@ -30,8 +30,9 @@ public class Arrays {
             //sort 75%
             Quicksort.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
             arrays[index + 3] = arrays[index + 2].clone();
+            Quicksort obj = new Quicksort();
             //sort 100%
-            Quicksort.sort(arrays[index + 3]);
+            obj.sort(arrays[index + 3]);
 
             //reverse ordered array
             arrays[index + 4] = new int[length];
