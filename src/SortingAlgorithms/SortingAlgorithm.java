@@ -36,5 +36,5 @@ public class SortingAlgorithm {
         return array;
     }
 
-    // SelectionSort and HeapSort classes and methods go here
+    // SelectionSort and HeapSort classes and methods go here*/
 }
