@@ -16,7 +16,7 @@ public class InsertionSort implements SortingAlgoInterface {
             array[j] = current;
         }
     }
-    */
+
     /**
      * Gets the name of the sorting algorithm
      * @return      name of the sorting algorithm

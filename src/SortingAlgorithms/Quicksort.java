@@ -1,4 +1,4 @@
-/package SortingAlgorithms;
+package SortingAlgorithms;
 
 /**
  * Quicksort algorithms with various pivot options
