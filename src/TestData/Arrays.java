@@ -1,7 +1,7 @@
 package TestData;
 
-import java.util.Random;
 import SortingAlgorithms.Quicksort;
+import java.util.Random;
 
 public class Arrays {
     public final static int MAX_SIZE = 32768;
@@ -15,24 +15,22 @@ public class Arrays {
     //5 sorts: random, 50%, 75%, ordered, reverse ordered
     private final int[][] arrays;
 
-    //option 1: user must use constructor to make arrs exist
-    //option 2: get method creates arr if it doesn't exist, or accesses it if it does
+    //user must use constructor to make arrays exist: Arrays x = new Arrays(); x.getAllArrays();
     public Arrays() {
         arrays = new int[NUM_ARRAYS][];
         int index = 0;
         Random random = new Random();
         for (int length = MIN_SIZE; length <= MAX_SIZE; length *= SIZE_FACTOR) {
             arrays[index] = random.ints(length, MIN_INT, MAX_INT).toArray(); //random
-            arrays[index + 1] = arrays[index].clone();
             //50%
+            arrays[index + 1] = arrays[index].clone();
             Quicksort.sort_partial(arrays[index + 1], 0, (arrays[index + 1].length - 1) / 2);
-            arrays[index + 2] = arrays[index + 1].clone();
             //sort 75%
+            arrays[index + 2] = arrays[index + 1].clone();
             Quicksort.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
-            arrays[index + 3] = arrays[index + 2].clone();
-            Quicksort obj = new Quicksort();
             //sort 100%
-            obj.sort(arrays[index + 3]);
+            arrays[index + 3] = arrays[index + 2].clone();
+            Quicksort.quicksort(arrays[index + 3]);
 
             //reverse ordered array
             arrays[index + 4] = new int[length];

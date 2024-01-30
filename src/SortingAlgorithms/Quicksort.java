@@ -28,6 +28,12 @@ public class Quicksort implements SortingAlgoInterface {
         }
     }
 
+    public static void quicksort(int[] arr) {
+        if (arr != null && arr.length > 1) {
+            sort(arr, 0, 0, arr.length - 1);
+        }
+    }
+
     private static void sort(int[] arr, int pivotIndex, int first, int last) {
         //base case: first >= last (one or zero items can't be split)
         //recursive case: put pivot in place and call recursively
