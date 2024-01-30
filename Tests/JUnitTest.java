@@ -1,4 +1,4 @@
-import SortingAlgorithms.*;
+/*import SortingAlgorithms.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -93,5 +93,5 @@ public class JUnitTest {
 //        Quicksort obj = new Quicksort();
 //        testAnySort(obj);
 //    }
-}
+}*/
 

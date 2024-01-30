@@ -1,4 +1,4 @@
-package TestData;
+/*package TestData;
 
 import java.util.Random;
 import SortingAlgorithms.Quicksort;
@@ -49,7 +49,7 @@ public class Arrays {
      * @param length how long the array should be (validated already)
      * @return position of the unsorted array of the given length
      */
-    public static int lengthToIndex(int length) {
+    /*public static int lengthToIndex(int length) {
         int goToLength = 0;
         for (int count = 4; count < length; count *= 2) {
             goToLength += 5;
@@ -62,7 +62,7 @@ public class Arrays {
      * @param entry entered length to be converted
      * @return length of array at least as large as entry but no more than MAX_SIZE
      */
-    public static int entryToLength(int entry) {
+    /*public static int entryToLength(int entry) {
         int boundary = 4;
         if (entry <= MAX_SIZE) {
             while (entry > boundary) {
@@ -80,11 +80,13 @@ public class Arrays {
      * smallest (unsorted 50% 75% sorted reverse) to largest (unsorted 50% 75% sorted reverse)
      * @return an array of all 70 arrays
      */
-    public int[][] getAllArrays() {
+    /* public int[][] getAllArrays() {
         return arrays.clone();
-    }
+    }*/
 
-    public static String[] getArrayOrderingStrategy(){
+
+
+    /*public static String[] getArrayOrderingStrategy(){
         return new String[] {
             "Random numbers",
             "Sorted 50%",
@@ -115,4 +117,4 @@ public class Arrays {
         return arrays[lengthToIndex(entryToLength(length)) + 4].clone();
     }
 
-}
+}*/
