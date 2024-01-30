@@ -62,7 +62,7 @@ public class RadixSort implements SortingAlgoInterface{
      * Gets the name of the sorting algorithm
      * @return      name of the sorting algorithm
      */
-    /*
+
     @Override
 
     public String getName() {

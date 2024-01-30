@@ -21,7 +21,7 @@ public class InsertionSort implements SortingAlgoInterface {
      * Gets the name of the sorting algorithm
      * @return      name of the sorting algorithm
      */
-    /*@Override
+    @Override
     public String getName() {
         return "InsertSort";
     }

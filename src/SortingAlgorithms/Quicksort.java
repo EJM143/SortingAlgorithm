@@ -1,4 +1,4 @@
-/*package SortingAlgorithms;
+/package SortingAlgorithms;
 
 /**
  * Quicksort algorithms with various pivot options
@@ -8,7 +8,7 @@ public class Quicksort implements SortingAlgoInterface {
     //partition
     //sort
 
- */
+
 
     @Override
     public String getName() {
@@ -75,6 +75,6 @@ public class Quicksort implements SortingAlgoInterface {
         arr[index2] = item1;
     }
 }
-*/
+
 
 
