@@ -1,19 +1,26 @@
 package SortingAlgorithms;
 
+import java.util.Random;
+
 /**
- * Quicksort algorithms with various pivot options
+ * Quicksort algorithm with random pivot
  */
-public class Quicksort implements SortingAlgoInterface {
+public class Quicksort_RandomPivot implements SortingAlgoInterface {
     //select pivot (1 of 3 options)
     //partition
     //sort
 
-    private static int selectPivot(int[] arr, int first, int last) {
-        return first;
+    public static int selectPivot(int[] arr, int first, int last) {
+        int index = first;
+        if (first < last) {
+            Random random = new Random();
+            index = random.nextInt(first, last + 1);
+        }
+        return index;
     }
-        //select 1: return first
-        //select random: return random between first, last inclusive
-        //select median of 3: if >= 3, do the thing, else sort and return 0
+    //select 1: return first
+    //select random: return random between first, last inclusive
+    //select median of 3: if >= 3, do the thing, else sort and return 0
 
     @Override
     public String getName() {
@@ -78,6 +85,3 @@ public class Quicksort implements SortingAlgoInterface {
         arr[index2] = item1;
     }
 }
-
-
-

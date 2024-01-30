@@ -13,8 +13,8 @@ public class SortingAlgorithm {
         printArray(selectionSortArray);
 
         // Make a copy of the original array
-        Arrays Arr;
-        int[] unsortedArray = Arr.copyOf(selectionSortArray, selectionSortArray.length);
+//        Arrays Arr;
+        int[] unsortedArray = java.util.Arrays.copyOf(selectionSortArray, selectionSortArray.length);
         selectionSortObj.sort(selectionSortArray);
         System.out.println("Selection Sort: Sorted array");
         printArray(selectionSortArray);
@@ -36,7 +36,7 @@ public class SortingAlgorithm {
         printArray(heapSortArray);
     }
 
-    private static void printArray(int arr[]) {
+    private static void printArray(int[] arr) {
         for (int value : arr) {
             System.out.print(value + " ");
         }
