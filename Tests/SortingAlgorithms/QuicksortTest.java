@@ -1,4 +1,4 @@
-/*package SortingAlgorithms;
+package SortingAlgorithms;
 
 import org.junit.jupiter.api.Test;
 
@@ -48,4 +48,4 @@ public class QuicksortTest {
     public void test_partition() {
 
     }
-}*/
+}
