@@ -1,4 +1,4 @@
-*package TestData;
+package TestData;
 
 import SortingAlgorithms.Quicksort;
 import java.util.Random;
