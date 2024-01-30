@@ -7,7 +7,8 @@ public class MergeSort implements SortingAlgoInterface {
      * @param left      left sub-array
      * @param right     right sub-array
      */
-    private static void merge(int[] array, int[] left, int[] right) {
+
+private static void merge(int[] array, int[] left, int[] right) {
         int index      = 0;
         int leftIndex  = 0;
         int rightIndex = 0;

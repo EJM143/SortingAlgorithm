@@ -8,6 +8,8 @@ public class Quicksort implements SortingAlgoInterface {
     //partition
     //sort
 
+
+
     @Override
     public String getName() {
         return "QuickSort, First Index Pivot";
@@ -73,4 +75,6 @@ public class Quicksort implements SortingAlgoInterface {
         arr[index2] = item1;
     }
 }
+
+
 
