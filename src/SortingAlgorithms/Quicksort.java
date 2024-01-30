@@ -24,7 +24,13 @@ public class Quicksort implements SortingAlgoInterface {
     }
 
     @Override
-    public static void sort(int[] arr) {
+    public void sort(int[] arr) {
+        if (arr != null && arr.length > 1) {
+            sort(arr, 0, 0, arr.length - 1);
+        }
+    }
+
+    public static void quicksort(int[] arr) {
         if (arr != null && arr.length > 1) {
             sort(arr, 0, 0, arr.length - 1);
         }

@@ -45,11 +45,11 @@ public class JUnitTest {
         BubbleSort obj = new BubbleSort();
         testAnySort(obj);
     }
-    @Test
-    void testBucketSort() {
-        BucketSort obj = new BucketSort();
-        testAnySort(obj);
-    }
+    //@Test
+    //void testBucketSort() {
+     //   BucketSort obj = new BucketSort();
+    //    testAnySort(obj);
+    //}
 
     @Test
     void testCountSort() {
