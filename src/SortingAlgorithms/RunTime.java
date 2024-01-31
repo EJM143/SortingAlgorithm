@@ -41,10 +41,10 @@ public class RunTime {
     public void runAlgo() {
         for(int index = 0; index < arrays.length; index++) {
             int arraySize = arrays[index].length;
-            long start = System.currentTimeMillis();
+            long start = System.nanoTime();
             sortMethod.sort(arrays[index]);
-            long end = System.currentTimeMillis();
-            long timeTaken = end - start;
+            long end = System.nanoTime();
+            long timeTaken = (end - start) / 1000;
             int caseNumber = index % 5;
 
             try {
@@ -62,11 +62,6 @@ public class RunTime {
         }
     }
 
-    public List<Pair<Long, Integer>>[] allLists() {
-        List<Pair<Long, Integer>>[] arrayOfLists = new List[]{getRandomArrayValues(), getHalfSortedArrayValues(),
-                                                                getThreeQuarterSortedValues(), getSortedArrayValues(), getReverseArrayValues()};
-        return arrayOfLists;
-    }
     public List<Pair<Long, Integer>> getRandomArrayValues(){
         return randomArrayValues;
     }
