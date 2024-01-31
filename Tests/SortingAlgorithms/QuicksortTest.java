@@ -44,10 +44,10 @@ public class QuicksortTest {
 
         //should only print indexes 0-3
         arr = new int[]{0, 1, 2, 3};
-        for (int count = 0; count < 10; count++)
+        for (int count = 0; count < 10; count++) {
             System.out.print(Quicksort_RandomPivot.selectPivot(arr, 0, 3));
         }
 
-
-
     }
+
+}
