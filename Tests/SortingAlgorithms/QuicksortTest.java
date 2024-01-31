@@ -8,7 +8,7 @@ public class QuicksortTest {
     public void test_sort_firstPivot() {
         //should not have issues if given null
         int[] arr = null;
-        Quicksort obj = new Quicksort();
+        Quicksort_MedianOf3 obj = new Quicksort_MedianOf3();
         obj.sort(arr);
         assertNull(arr);
 
@@ -47,5 +47,7 @@ public class QuicksortTest {
         for (int count = 0; count < 10; count++)
             System.out.print(Quicksort_RandomPivot.selectPivot(arr, 0, 3));
         }
+
+
 
     }
