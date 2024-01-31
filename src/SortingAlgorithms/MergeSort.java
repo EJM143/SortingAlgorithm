@@ -72,6 +72,6 @@ private static void merge(int[] array, int[] left, int[] right) {
      */
     @Override
     public String getName() {
-        return "MergeSort";
+        return "Merge Sort";
     }
 }

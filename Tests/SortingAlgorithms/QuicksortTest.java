@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 public class QuicksortTest {
-
     @Test
     public void test_sort_firstPivot() {
         //should not have issues if given null
         int[] arr = null;
-        Quicksort obj = new Quicksort();
+        Quicksort_MedianOf3 obj = new Quicksort_MedianOf3();
         obj.sort(arr);
         assertNull(arr);
 
@@ -24,29 +23,29 @@ public class QuicksortTest {
         assertArrayEquals(new int[]{9}, arr);
 
         //should not alter sorted arr
-        arr = new int[]{6,9};
+        arr = new int[]{6, 9};
         obj.sort(arr);
         assertArrayEquals(new int[]{6, 9}, arr);
 
         //should sort two item array
-        arr = new int[]{9,6};
+        arr = new int[]{9, 6};
         obj.sort(arr);
         assertArrayEquals(new int[]{6, 9}, arr);
 
         //should sort unsorted arr
-        arr = new int[]{9,6, 3, 1, 7};
+        arr = new int[]{9, 6, 3, 1, 7};
         obj.sort(arr);
         assertArrayEquals(new int[]{1, 3, 6, 7, 9}, arr);
 
         //should sort unsorted arr
-        arr = new int[]{1,6, 3, 7, 9};
+        arr = new int[]{1, 6, 3, 7, 9};
         obj.sort(arr);
         assertArrayEquals(new int[]{1, 3, 6, 7, 9}, arr);
-    }
 
-    @Test
-    public void test_partition() {
-
+        //should only print indexes 0-3
+        arr = new int[]{0, 1, 2, 3};
+        for (int count = 0; count < 10; count++)
+            System.out.print(Quicksort_RandomPivot.selectPivot(arr, 0, 3));
+        }
     }
 }
-

@@ -47,7 +47,7 @@ public class Arrays {
      * Converts requested length of array to position of array to access
      * @param length how long the array should be (validated already)
      * @return position of the unsorted array of the given length
-
+    */
     public static int lengthToIndex(int length) {
         int goToLength = 0;
         for (int count = 4; count < length; count *= 2) {
