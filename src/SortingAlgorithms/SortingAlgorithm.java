@@ -1,13 +1,26 @@
 package SortingAlgorithms;
+
+import java.util.Arrays;
+
 public class SortingAlgorithm {
-/*
+
     public static void main(String[] args) {
         // Selection Sort
         int[] selectionSortArray = {4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
         SortingAlgorithms.SelectionSort selectionSortObj = new SortingAlgorithms.SelectionSort();
+
+        System.out.println("Original array:");
+        printArray(selectionSortArray);
+
+        // Make a copy of the original array
+//        Arrays Arr;
+        int[] unsortedArray = java.util.Arrays.copyOf(selectionSortArray, selectionSortArray.length);
         selectionSortObj.sort(selectionSortArray);
         System.out.println("Selection Sort: Sorted array");
         printArray(selectionSortArray);
+
+        System.out.println("Unsorted array (after sorting):");
+        printArray(unsortedArray);
 
         // Counting Sort
         int[] countingSortArray = {4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
@@ -23,7 +36,7 @@ public class SortingAlgorithm {
         printArray(heapSortArray);
     }
 
-    private static void printArray(int arr[]) {
+    private static void printArray(int[] arr) {
         for (int value : arr) {
             System.out.print(value + " ");
         }

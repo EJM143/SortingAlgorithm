@@ -11,10 +11,10 @@ public class JUnitTest {
 
         // int[] list = makeList();
 
-        int [][] arrays = new TestData.Arrays().getAllArrays();
+        int[][] arrays = new TestData.Arrays().getAllArrays();
         String[] arrayType = TestData.Arrays.getArrayOrderingStrategy();
         int index = 0;
-        for(int j = 0; j < arrays.length; j++, index++) {
+        for (int j = 0; j < arrays.length; j++, index++) {
             System.out.println();
             System.out.println(" \t \t" + obj.getName() + " Array Size = "
                     + arrays[j].length +" Array Type: "+arrayType[index%arrayType.length] + " \t \t");
@@ -29,8 +29,8 @@ public class JUnitTest {
             long end = System.currentTimeMillis();
             // Checking if sorting really worked
             for (int i = 1; i < arrays[j].length; i++) {
-                if(!(arrays[j][i - 1] <= arrays[j][i])){
-                    System.out.println(i+ ":" + arrays[j][i]  + "," + (i-1) + ":" + arrays[j][i - 1] );
+                if (!(arrays[j][i - 1] <= arrays[j][i])) {
+                    System.out.println(i + ":" + arrays[j][i] + "," + (i - 1) + ":" + arrays[j][i - 1]);
                     assertTrue(false);
                 }
 
@@ -47,7 +47,7 @@ public class JUnitTest {
     }
     //@Test
     //void testBucketSort() {
-     //   BucketSort obj = new BucketSort();
+    //   BucketSort obj = new BucketSort();
     //    testAnySort(obj);
     // }
 
@@ -56,16 +56,19 @@ public class JUnitTest {
         CountSort obj = new CountSort();
         testAnySort(obj);
     }
+
     @Test
     void testInsertionSort() {
         InsertionSort obj = new InsertionSort();
         testAnySort(obj);
     }
+
     @Test
     void testMergeSort() {
         MergeSort obj = new MergeSort();
         testAnySort(obj);
     }
+
     @Test
     void testRadixSort() {
         RadixSort obj = new RadixSort();
@@ -83,6 +86,7 @@ public class JUnitTest {
         HeapSort obj = new HeapSort();
         testAnySort(obj);
     }
+
     @Test
     void testSelectionSort() {
         SelectionSort obj = new SelectionSort();
