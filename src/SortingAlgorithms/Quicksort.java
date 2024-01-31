@@ -1,30 +1,39 @@
 package SortingAlgorithms;
 
 /**
- * Quicksort algorithms with various pivot options
+ * Base quicksort class, uses first pivot scheme, see other quicksort algorithms for other options
  */
 public class Quicksort implements SortingAlgoInterface {
     //select pivot (1 of 3 options)
     //partition
     //sort
-
-    private static int selectPivot(int[] arr, int first, int last) {
-        return first;
+    @Override
+    public void sort(int[] arr) {
+        quicksort(arr);
     }
-        //select 1: return first
-        //select random: return random between first, last inclusive
-        //select median of 3: if >= 3, do the thing, else sort and return 0
-
     @Override
     public String getName() {
         return "QuickSort, First Index Pivot";
     }
 
-    @Override
-    public void sort(int[] arr) {
-        quicksort(arr);
+    //select 1: return first
+    //select random: return random between first, last inclusive
+    //select median of 3: if >= 3, sort, else sort among pivots and return mid
+    /**
+     * Selects pivot for this quicksort's pivot selection scheme
+     * @param arr the array to sort
+     * @param first the first index of the portion to sort
+     * @param last the last index of the portion to sort
+     * @return index of the pivot
+     */
+    private static int selectPivot(int[] arr, int first, int last) {
+        return first;
     }
 
+    /**
+     * Sorts the array
+     * @param arr array to be sorted
+     */
     public static void quicksort(int[] arr) {
         if (arr != null && arr.length > 1) {
             int last = arr.length - 1;
@@ -32,6 +41,12 @@ public class Quicksort implements SortingAlgoInterface {
         }
     }
 
+    /**
+     * Leverages quicksort algorithm to sort only part of an array. Does nothing if array is null, or bad indexes given
+     * @param arr the array to be partially sorted, should not be null
+     * @param startIndex first index of the portion to be sorted, should be 0 <= start <= end <= arr.length
+     * @param endIndex last index of the portion to be sorted
+     */
     public static void sort_partial(int[] arr, int startIndex, int endIndex) {
         if (arr != null && arr.length > 1 &&
                 startIndex >= 0 && startIndex < arr.length && startIndex <= endIndex &&
@@ -40,6 +55,13 @@ public class Quicksort implements SortingAlgoInterface {
         }
     }
 
+    /**
+     * Recursively sorts the array
+     * @param arr the array to be sorted
+     * @param pivotIndex index of the pivot
+     * @param first first index of the portion to be sorted
+     * @param last last index of the portion to be sorted
+     */
     private static void sort(int[] arr, int pivotIndex, int first, int last) {
         //base case: first >= last (one or zero items can't be split)
         //recursive case: put pivot in place and call recursively

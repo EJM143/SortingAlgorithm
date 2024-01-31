@@ -1,6 +1,6 @@
 package SortingAlgorithms;
-// Java program for implementation of Heap Sort
 
+/** Implementation of Heap Sort */
 public class HeapSort implements SortingAlgoInterface{
     /**
      * Sort the array using heap sort
@@ -26,8 +26,12 @@ public class HeapSort implements SortingAlgoInterface{
         }
     }
 
-    // To heapify a subtree rooted with node i which is
-    // an index in arr[]. n is size of heap
+    /**
+     * Heapify subtree rooted at node at index i of the arr
+     * @param arr the array to sort
+     * @param N size of the heap
+     * @param i index of the node the subtree is rooted at
+     */
     void heapify(int arr[], int N, int i)
     {
         int largest = i; // Initialize largest as root
