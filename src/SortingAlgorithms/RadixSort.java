@@ -1,6 +1,7 @@
 package SortingAlgorithms;
 import java.util.Arrays;
 
+/** Radix sort class */
 public class RadixSort implements SortingAlgoInterface{
     /**
      * A function to get the maximum value in the array

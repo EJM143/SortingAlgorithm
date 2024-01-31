@@ -19,6 +19,10 @@ public class RunTime {
     private static List<Pair<Long, Integer>> reverseArrayValues;
     private SortingAlgoInterface sortMethod;
 
+    /**
+     * Constructor initializes various arraylists to hold data
+     * @param sortMethod the sorting algorithm to use (must implement SortingAlgoInterface)
+     */
     public RunTime(SortingAlgoInterface sortMethod) {
         randomArrayValues = new ArrayList<>();
         halfSortedArrayValues = new ArrayList<>();
@@ -30,6 +34,10 @@ public class RunTime {
         this.runAlgo();
     }
 
+    /**
+     * Main program for this class
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
 //        for (Pair<Long, Integer> pair : myRT.getRandomArrayValues()) {
 //            System.out.println(pair.getKey() + " " + pair.getValue());
@@ -38,6 +46,10 @@ public class RunTime {
 //            System.out.println(pair.getKey() + " " + pair.getValue());
 //        }
     }
+
+    /**
+     * Calculates runtime for all array sizes and types for this algorithm
+     */
     public void runAlgo() {
         for(int index = 0; index < arrays.length; index++) {
             int arraySize = arrays[index].length;
@@ -62,27 +74,52 @@ public class RunTime {
         }
     }
 
+    /**
+     * Returns an array of Lists: random results, 50% sorted results, 75%, 100%, reverse sorted results
+     * @return array of Lists which hold the results for timing tests
+     */
     public List<Pair<Long, Integer>>[] allLists() {
         List<Pair<Long, Integer>>[] arrayOfLists = new List[]{getRandomArrayValues(), getHalfSortedArrayValues(),
                                                                 getThreeQuarterSortedValues(), getSortedArrayValues(), getReverseArrayValues()};
         return arrayOfLists;
     }
+
+    /**
+     * returns List of random array results
+     * @return List of (Time, Size) results of random arrays
+     */
     public List<Pair<Long, Integer>> getRandomArrayValues(){
         return randomArrayValues;
     }
 
+    /**
+     * returns List of half sorted array results
+     * @return List of (Time, Size) results of half sorted arrays
+     */
     public List<Pair<Long, Integer>> getHalfSortedArrayValues() {
         return halfSortedArrayValues;
     }
 
+    /**
+     * returns List of 75% sorted array results
+     * @return List of (Time, Size) results of 75% sorted arrays
+     */
     public List<Pair<Long, Integer>> getThreeQuarterSortedValues(){
         return threeQuarterSortedValues;
     }
 
+    /**
+     * returns List of 100% sorted array results
+     * @return List of (Time, Size) results of 100% sorted arrays
+     */
     public List<Pair<Long, Integer>> getSortedArrayValues(){
         return sortedArrayValues;
     }
 
+    /**
+     * returns List of reverse sorted array results
+     * @return List of (Time, Size) results of reverse sorted arrays
+     */
     public List<Pair<Long, Integer>> getReverseArrayValues() {
         return reverseArrayValues;
     }

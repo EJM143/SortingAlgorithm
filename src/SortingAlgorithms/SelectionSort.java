@@ -1,6 +1,7 @@
 package SortingAlgorithms;
 import java.io.*;
 
+/** Selection Sort algorithm class */
 public class SelectionSort implements SortingAlgoInterface {
     /**
      * Sort the array using SelectionSort
