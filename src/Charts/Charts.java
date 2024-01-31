@@ -19,6 +19,9 @@ import java.util.List;
  * @version 1.2
  */
 public class Charts extends Application {
+    /**
+     * RunTime variables created for each sorting method
+     */
     private static final RunTime bubbleRT = new RunTime(new BubbleSort());
     private static final RunTime bucketRT = new RunTime(new BucketSort());
     private static final RunTime countRT = new RunTime(new CountSort());
@@ -40,11 +43,12 @@ public class Charts extends Application {
     @Override
     public void start(Stage stage) {
         String[] arrayTypes = {"Random Array", "50% Sorted Array", "75% Sorted Array", "Sorted Array", "Reverse Sorted Array"};
-        LineChart<Number, Number> c1 = createLineChart(bubbleRT.getRandomArrayValues(), arrayTypes[0]);
-        LineChart<Number, Number> c2 = createLineChart(bubbleRT.getHalfSortedArrayValues(), arrayTypes[1]);
-        LineChart<Number, Number> c3 = createLineChart(bubbleRT.getThreeQuarterSortedValues(), arrayTypes[2]);
-        LineChart<Number, Number> c4 = createLineChart(bubbleRT.getSortedArrayValues(), arrayTypes[3]);
-        LineChart<Number, Number> c5 = createLineChart(bubbleRT.getReverseArrayValues(), arrayTypes[4]);
+        LineChart<Number, Number> c1 = createLineChart(shellRT.getRandomArrayValues(), arrayTypes[0]);
+        LineChart<Number, Number> c2 = createLineChart(shellRT.getHalfSortedArrayValues(), arrayTypes[1]);
+        LineChart<Number, Number> c3 = createLineChart(shellRT.getThreeQuarterSortedValues(), arrayTypes[2]);
+        LineChart<Number, Number> c4 = createLineChart(shellRT.getSortedArrayValues(), arrayTypes[3]);
+        LineChart<Number, Number> c5 = createLineChart(shellRT.getReverseArrayValues(), arrayTypes[4]);
+
         FlowPane root = new FlowPane();
         root.getChildren().addAll(c1, c2, c3, c4, c5);
         Scene scene  = new Scene(root,2000,800);
@@ -54,18 +58,23 @@ public class Charts extends Application {
         stage.show();
     }
 
+    /**
+     * Creates a LineChart
+     * @param list Values to be input for the LineChart
+     * @param arrayType The type of Array used(Random/50% Sorted/75% Sorted/Sorted/Reverse Sorted)
+     * @return LineChart created
+     */
     private LineChart<Number, Number> createLineChart(List<Pair<Long, Integer>> list, String arrayType){
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Size of data input");
-        yAxis.setLabel("Time taken");
-        //creating the chart
-        final LineChart<Number,Number> lineChart = new LineChart<Number,Number>(xAxis,yAxis);
+        yAxis.setLabel("Time in microseconds(μs)");
 
+        final LineChart<Number,Number> lineChart = new LineChart<>(xAxis,yAxis);
         lineChart.setTitle(arrayType);
-        //defining a series
+
         XYChart.Series series = new XYChart.Series();
-        series.setName("Run-Time of Sorting");
+        series.setName("Run-Time of ShellSort");
         for(Pair<Long, Integer> pair : list){
             series.getData().add(new XYChart.Data(pair.getValue(), pair.getKey()));
         }
