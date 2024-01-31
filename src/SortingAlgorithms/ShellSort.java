@@ -6,7 +6,7 @@ package SortingAlgorithms;
  * @author KRB
  * @version 1.1
  */
-public class ShellSort implements SortingAlgoInterface{
+public class ShellSort implements SortingAlgoInterface {
     /**
      * Method to sort a given array of integers
      * @param array Desired array of integers to sort

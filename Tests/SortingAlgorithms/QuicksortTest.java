@@ -47,7 +47,5 @@ public class QuicksortTest {
         for (int count = 0; count < 10; count++)
             System.out.print(Quicksort_RandomPivot.selectPivot(arr, 0, 3));
         }
-
-
-
     }
+}
