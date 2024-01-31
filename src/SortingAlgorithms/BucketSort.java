@@ -27,12 +27,12 @@ public class BucketSort implements SortingAlgoInterface {
         int numOfBuckets = (int)Math.sqrt(size);
 
         List<Integer>[] buckets = new ArrayList[numOfBuckets];
-        for (int i =0; i < maxValue + 1 ; i++) {
+        for (int i =0; i < numOfBuckets ; i++) {
             buckets[i] = new ArrayList<>();
         }
 
         for (int i = 0; i < size; i++){
-            int bucketIndex = (int)((double)array[i] / maxValue * numOfBuckets);
+            int bucketIndex = Math.min((int)((double)array[i] / maxValue * numOfBuckets), numOfBuckets - 1);
             buckets[bucketIndex].add(array[i]);
         }
 

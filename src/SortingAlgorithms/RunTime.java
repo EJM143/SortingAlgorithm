@@ -1,4 +1,5 @@
-import SortingAlgorithms.*;
+package SortingAlgorithms;
+
 import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,17 +17,28 @@ public class RunTime {
     private static List<Pair<Long, Integer>> threeQuarterSortedValues;
     private static List<Pair<Long, Integer>> sortedArrayValues;
     private static List<Pair<Long, Integer>> reverseArrayValues;
+    private SortingAlgoInterface sortMethod;
 
-    public RunTime() {
+    public RunTime(SortingAlgoInterface sortMethod) {
         randomArrayValues = new ArrayList<>();
         halfSortedArrayValues = new ArrayList<>();
         threeQuarterSortedValues = new ArrayList<>();
         sortedArrayValues = new ArrayList<>();
         reverseArrayValues  = new ArrayList<>();
         arrays = new TestData.Arrays().getAllArrays();
+        this.sortMethod = sortMethod;
+        this.runAlgo();
     }
 
-    public static void runAlgo(SortingAlgoInterface sortMethod) {
+    public static void main(String[] args) {
+//        for (Pair<Long, Integer> pair : myRT.getRandomArrayValues()) {
+//            System.out.println(pair.getKey() + " " + pair.getValue());
+//        }
+//        for (Pair<Long, Integer> pair : myRT.getHalfSortedArrayValues()) {
+//            System.out.println(pair.getKey() + " " + pair.getValue());
+//        }
+    }
+    public void runAlgo() {
         for(int index = 0; index < arrays.length; index++) {
             int arraySize = arrays[index].length;
             long start = System.currentTimeMillis();
@@ -47,7 +59,31 @@ public class RunTime {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-
         }
+    }
+
+    public List<Pair<Long, Integer>>[] allLists() {
+        List<Pair<Long, Integer>>[] arrayOfLists = new List[]{getRandomArrayValues(), getHalfSortedArrayValues(),
+                                                                getThreeQuarterSortedValues(), getSortedArrayValues(), getReverseArrayValues()};
+        return arrayOfLists;
+    }
+    public List<Pair<Long, Integer>> getRandomArrayValues(){
+        return randomArrayValues;
+    }
+
+    public List<Pair<Long, Integer>> getHalfSortedArrayValues() {
+        return halfSortedArrayValues;
+    }
+
+    public List<Pair<Long, Integer>> getThreeQuarterSortedValues(){
+        return threeQuarterSortedValues;
+    }
+
+    public List<Pair<Long, Integer>> getSortedArrayValues(){
+        return sortedArrayValues;
+    }
+
+    public List<Pair<Long, Integer>> getReverseArrayValues() {
+        return reverseArrayValues;
     }
 }
