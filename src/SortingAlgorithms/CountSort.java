@@ -42,6 +42,6 @@ public class CountSort implements SortingAlgoInterface {
 
     @Override
     public String getName() {
-        return "CountSort";
+        return "Count Sort";
     }
 }
