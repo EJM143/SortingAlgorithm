@@ -48,6 +48,7 @@ public class SortingAlgorithm {
         // Make sure to return the sorted array
         return array;
     }
+}
 
     // SelectionSort and HeapSort classes and methods go here*/
 
