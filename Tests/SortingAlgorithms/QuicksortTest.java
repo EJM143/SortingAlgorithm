@@ -9,7 +9,7 @@ public class QuicksortTest {
     public void test_sort_firstPivot() {
         //should not have issues if given null
         int[] arr = null;
-        SortingAlgorithms.Quicksort obj = new SortingAlgorithms.Quicksort();
+        Quicksort obj = new Quicksort();
         obj.sort(arr);
         assertNull(arr);
 
