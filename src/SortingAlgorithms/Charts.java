@@ -1,4 +1,4 @@
-package src.SortingAlgorithms;
+package SortingAlgorithms;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
