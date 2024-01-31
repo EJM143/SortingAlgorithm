@@ -33,7 +33,7 @@ public class Quicksort_FirstPivot implements SortingAlgoInterface {
             }
         }
 
-        private static void sort(int[] arr, int pivotIndex, int first, int last) {
+        public static void sort(int[] arr, int pivotIndex, int first, int last) {
             //base case: first >= last (one or zero items can't be split)
             //recursive case: put pivot in place and call recursively
             //if more than 2 items, do the thing
