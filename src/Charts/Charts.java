@@ -1,9 +1,15 @@
 package Charts;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
+public class Charts extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-/**
- * Create charts based on data gathered by running each algorithm against the Arrays
- */
-public class Charts{
+    @Override
+    public void start(Stage primaryStage) {
+        
+    }
 }
