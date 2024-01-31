@@ -18,15 +18,15 @@ public class JUnitTest {
             System.out.println();
             System.out.println(" \t \t" + obj.getName() + " Array Size = "
                     + arrays[j].length +" Array Type: "+arrayType[index%arrayType.length] + " \t \t");
-            System.out.println("=======================================================");
+            System.out.println("----------------------------------------------------------------------");
             //Prints the first 10 of unsorted list to console
             for (int i = 0; i < 10 && i < arrays[j].length; i++) {
                 System.out.print(arrays[j][i] + " ");
             }
             System.out.println();
-
+            long start = System.currentTimeMillis();
             obj.sort(arrays[j]);
-
+            long end = System.currentTimeMillis();
             // Checking if sorting really worked
             for (int i = 1; i < arrays[j].length; i++) {
                 if(!(arrays[j][i - 1] <= arrays[j][i])){
@@ -35,8 +35,8 @@ public class JUnitTest {
                 }
 
             }
-
-            System.out.println("=======================================================");
+            System.out.println("Sorting took: " + (end-start) + " milliseconds");
+            System.out.println("======================================================================");
         }
     }
 
@@ -49,7 +49,7 @@ public class JUnitTest {
     //void testBucketSort() {
      //   BucketSort obj = new BucketSort();
     //    testAnySort(obj);
-    //}
+    // }
 
     @Test
     void testCountSort() {

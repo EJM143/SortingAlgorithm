@@ -38,6 +38,6 @@ public class ShellSort implements SortingAlgoInterface{
      */
     @Override
     public String getName() {
-        return "ShellSort";
+        return "Shell Sort";
     }
 }

@@ -64,6 +64,6 @@ public class RadixSort implements SortingAlgoInterface{
      */
     @Override
     public String getName() {
-        return "RadixSort";
+        return "Radix Sort";
     }
 }

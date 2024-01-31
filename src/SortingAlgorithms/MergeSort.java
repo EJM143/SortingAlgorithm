@@ -71,6 +71,6 @@ public class MergeSort implements SortingAlgoInterface {
      */
     @Override
     public String getName() {
-        return "MergeSort";
+        return "Merge Sort";
     }
 }
