@@ -2,11 +2,15 @@ package SortingAlgorithms;
 import java.io.*;
 
 public class SelectionSort implements SortingAlgoInterface {
+    /**
+     * Sort the array using SelectionSort
+     * @param arr array to be sorted
+     */
     @Override
     public void sort(int arr[]) {
         int n = arr.length;
 
-        // One by one move boundary of unsorted subarray
+
         for (int i = 0; i < arr.length - 1; i++) {
             // Find the minimum element in unsorted array
             int smallest = i;

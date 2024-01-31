@@ -2,6 +2,10 @@ package SortingAlgorithms;
 import java.util.Arrays;
 
 public class CountSort implements SortingAlgoInterface {
+    /**
+     * Sorts the array using the CountSort algorithm
+     * @param inputArray array to be sorted
+     */
     @Override
     public void sort(int[] inputArray) {
         //size of the input array

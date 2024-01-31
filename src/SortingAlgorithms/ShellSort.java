@@ -1,4 +1,4 @@
-package SortingAlgorithms;
+package src.SortingAlgorithms;
 
 /**
  * Class implementation to sort an array of integers using ShellSort
@@ -6,7 +6,7 @@ package SortingAlgorithms;
  * @author KRB
  * @version 1.1
  */
-public class ShellSort implements SortingAlgoInterface{
+public class ShellSort implements SortingAlgorithms.SortingAlgoInterface {
     /**
      * Method to sort a given array of integers
      * @param array Desired array of integers to sort

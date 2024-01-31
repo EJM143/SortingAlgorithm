@@ -8,7 +8,7 @@ import java.util.List;
  * @author KRB
  * @version 1.3
  */
-public class BucketSort implements SortingAlgoInterface {
+public class BucketSort implements SortingAlgorithms.SortingAlgoInterface {
     /**
      * Method to sort a given array of integers
      * @param array Desired array of integers to sort
