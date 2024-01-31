@@ -1,7 +1,8 @@
 package SortingAlgorithms;
 
 /**
- * Base quicksort class, uses first pivot scheme, see other quicksort algorithms for other options
+ * Base quicksort class to be customized for various pivot schemes
+ * Uses first pivot scheme, see other quicksort classes for other options
  */
 public class Quicksort implements SortingAlgoInterface {
     //select pivot (1 of 3 options)
@@ -73,7 +74,14 @@ public class Quicksort implements SortingAlgoInterface {
         }
     }
 
-
+    /**
+     * Places the pivot into its final spot and smaller items to the left and larger items to the right
+     * @param arr   the array to be sorted
+     * @param pivotIndex    index of the pivot
+     * @param first first index of the portion to be sorted
+     * @param last  last index of the portion to be sorted
+     * @return the index of the pivot that is now in its final position
+     */
     private static int partition(int[] arr, int pivotIndex, int first, int last) {
         //swap pivot with last index
         //wall = first
@@ -94,6 +102,12 @@ public class Quicksort implements SortingAlgoInterface {
         return wallIndex;
     }
 
+    /**
+     * Swaps the positions of the items at the given indexes
+     * @param arr   array within which to swap
+     * @param index1 index of the first item to swap
+     * @param index2 index of the second item to swap
+     */
     public static void swap(int[] arr, int index1, int index2) {
         int item1 = arr[index1];
         arr[index1] = arr[index2];

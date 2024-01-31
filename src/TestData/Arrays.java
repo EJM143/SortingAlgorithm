@@ -33,13 +33,13 @@ public class Arrays {
             arrays[index] = random.ints(length, MIN_INT, MAX_INT).toArray(); //random
             //50%
             arrays[index + 1] = arrays[index].clone();
-            Quicksort_RandomPivot.sort_partial(arrays[index + 1], 0, (arrays[index + 1].length - 1) / 2);
+            Quicksort_MedianOf3.sort_partial(arrays[index + 1], 0, (arrays[index + 1].length - 1) / 2);
             //sort 75%
             arrays[index + 2] = arrays[index + 1].clone();
-            Quicksort_RandomPivot.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
+            Quicksort_MedianOf3.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
             //sort 100%
             arrays[index + 3] = arrays[index + 2].clone();
-            Quicksort_RandomPivot.quicksort(arrays[index + 3]);
+            Quicksort_MedianOf3.quicksort(arrays[index + 3]);
             //reverse ordered array
             arrays[index + 4] = new int[length];
             for (int in = 0; in < length; in++) {
