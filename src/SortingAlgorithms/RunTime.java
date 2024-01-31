@@ -53,10 +53,10 @@ public class RunTime {
     public void runAlgo() {
         for(int index = 0; index < arrays.length; index++) {
             int arraySize = arrays[index].length;
-            long start = System.currentTimeMillis();
+            long start = System.nanoTime();
             sortMethod.sort(arrays[index]);
-            long end = System.currentTimeMillis();
-            long timeTaken = end - start;
+            long end = System.nanoTime();
+            long timeTaken = (end - start) / 1000;
             int caseNumber = index % 5;
 
             try {
@@ -72,16 +72,6 @@ public class RunTime {
                 throw new RuntimeException(e);
             }
         }
-    }
-
-    /**
-     * Returns an array of Lists: random results, 50% sorted results, 75%, 100%, reverse sorted results
-     * @return array of Lists which hold the results for timing tests
-     */
-    public List<Pair<Long, Integer>>[] allLists() {
-        List<Pair<Long, Integer>>[] arrayOfLists = new List[]{getRandomArrayValues(), getHalfSortedArrayValues(),
-                                                                getThreeQuarterSortedValues(), getSortedArrayValues(), getReverseArrayValues()};
-        return arrayOfLists;
     }
 
     /**
