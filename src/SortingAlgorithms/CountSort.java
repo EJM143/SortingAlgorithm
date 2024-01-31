@@ -1,6 +1,6 @@
 package SortingAlgorithms;
-import java.util.Arrays;
 
+/** Count sort class */
 public class CountSort implements SortingAlgoInterface {
     /**
      * Sorts the array using the CountSort algorithm

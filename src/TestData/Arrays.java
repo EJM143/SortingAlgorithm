@@ -1,21 +1,30 @@
 package TestData;
 
-import SortingAlgorithms.Quicksort;
+import SortingAlgorithms.*;
 import java.util.Random;
 
+/** Represents a class that produces arrays of integers to test sorting algorithms on */
 public class Arrays {
+    /** Maximum length of int arrays to test sorting algorithms on */
     public final static int MAX_SIZE = 32768;
+    /** Minimum length of arrays to test sorting algorithms on */
     public final static int MIN_SIZE = 4;
-    public final static int MAX_INT = 40001; //not included
-    public final static int MIN_INT = 0; //included
+    /** Upper bound on integers to include in the arrays (not included) */
+    public final static int MAX_INT = 40001;
+    /** Lower bound on integers to include in the arrays (included) */
+    public final static int MIN_INT = 0;
+    /** Amount to increase the length of the arrays by between sizes */
     private final static int SIZE_FACTOR = 2;
+    /** Number of arrays to create total */
     private final static int NUM_ARRAYS = 70;
-    //Produce arrays of test data
-    //14 lengths (powers of 2)
-    //5 sorts: random, 50%, 75%, ordered, reverse ordered
+    /** array to hold all the int arrays in */
     private final int[][] arrays;
 
     //user must use constructor to make arrays exist: Arrays x = new Arrays(); x.getAllArrays();
+    //Produce arrays of test data
+    //14 lengths (powers of 2)
+    //5 sorts: random, 50%, 75%, ordered, reverse ordered
+    /** Constructs an Arrays object which creates all the arrays, fills with ints, and sorts according to scheme */
     public Arrays() {
         arrays = new int[NUM_ARRAYS][];
         int index = 0;
@@ -24,14 +33,13 @@ public class Arrays {
             arrays[index] = random.ints(length, MIN_INT, MAX_INT).toArray(); //random
             //50%
             arrays[index + 1] = arrays[index].clone();
-            Quicksort.sort_partial(arrays[index + 1], 0, (arrays[index + 1].length - 1) / 2);
+            Quicksort_RandomPivot.sort_partial(arrays[index + 1], 0, (arrays[index + 1].length - 1) / 2);
             //sort 75%
             arrays[index + 2] = arrays[index + 1].clone();
-            Quicksort.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
+            Quicksort_RandomPivot.sort_partial(arrays[index + 2], 0, (arrays[index + 1].length) / 4 * 3 - 1);
             //sort 100%
             arrays[index + 3] = arrays[index + 2].clone();
-            Quicksort.quicksort(arrays[index + 3]);
-
+            Quicksort_RandomPivot.quicksort(arrays[index + 3]);
             //reverse ordered array
             arrays[index + 4] = new int[length];
             for (int in = 0; in < length; in++) {
@@ -84,7 +92,10 @@ public class Arrays {
     }
 
 
-
+    /**
+     * Returns an array of descriptions of order scheme for iteration display
+     * @return array of descriptions of ordering strategy
+     */
     public static String[] getArrayOrderingStrategy(){
         return new String[] {
             "Random numbers",
@@ -95,23 +106,48 @@ public class Arrays {
         };
     }
 
+    /**
+     * Returns a randomly ordered array of given length rounded up to next available size
+     * @param length desired length, if not available, rounds up to next available size
+     * @return a copy of the randomly ordered array of given length or rounded up
+     */
     public int[] getRandomOrdered(int length) {
         return arrays[lengthToIndex(entryToLength(length))].clone();
     }
 
+    /**
+     * Returns a 50% sorted array of given length rounded up to next available size
+     * @param length desired length, if not available, rounds up to next available size
+     * @return a copy of the half sorted array of given length or rounded up
+     */
     public int[] getHalfSorted(int length) {
         return arrays[lengthToIndex(entryToLength(length)) + 1].clone();
 
     }
 
+    /**
+     * Returns a 75% sorted array of given length rounded up to next available size
+     * @param length desired length, if not available, rounds up to next available size
+     * @return a copy of the 75% sorted array of given length or rounded up
+     */
     public int[] getThreeQuartersSorted(int length) {
         return arrays[lengthToIndex(entryToLength(length)) + 2].clone();
     }
 
+    /**
+     * Returns a sorted array of given length rounded up to next available size
+     * @param length desired length, if not available, rounds up to next available size
+     * @return a copy of the sorted array of given length or rounded up
+     */
     public int[] getSorted(int length) {
         return arrays[lengthToIndex(entryToLength(length)) + 3].clone();
     }
 
+    /**
+     * Returns a reverse sorted array of given length rounded up to next available size
+     * @param length desired length, if not available, rounds up to next available size
+     * @return a copy of the reverse sorted array of given length or rounded up
+     */
     public int[] getReverseSorted(int length) {
         return arrays[lengthToIndex(entryToLength(length)) + 4].clone();
     }
