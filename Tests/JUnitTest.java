@@ -1,5 +1,10 @@
 import SortingAlgorithms.*;
 import org.junit.jupiter.api.Test;
+import org.knowm.xchart.QuickChart;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
+
+import java.util.List;
 
 import java.util.Arrays;
 
@@ -9,17 +14,29 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class JUnitTest {
 
 
-    void testAnySort(SortingAlgoInterface obj) {
+    public static void testAnySort(SortingAlgoInterface obj) {
 
         // int[] list = makeList();
 
+
+
         int[][] arrays = new TestData.Arrays().getAllArrays();
         String[] arrayType = TestData.Arrays.getArrayOrderingStrategy();
-        int index = 0;
-        for (int j = 0; j < arrays.length; j++, index++) {
+        double [] arrayLengths = new double[arrays.length/5];
+        for (int i = 0; i < arrayLengths.length; i++) {
+            arrayLengths[i] = arrays[i*5].length;
+        }
+
+        double [] randomArrayTimes = new double[arrays.length/5];
+        double [] halfSortedArrayTimes = new double[arrays.length/5];
+        double [] threeQuarterArrayTimes = new double[arrays.length/5];
+        double [] sortedArrayTimes = new double[arrays.length/5];
+        double [] reverseSortedArrayTimes = new double[arrays.length/5];
+
+        for (int j = 0; j < arrays.length; j++) {
             System.out.println();
             System.out.println(" \t \t" + obj.getName() + " Array Size = "
-                    + arrays[j].length +" Array Type: "+arrayType[index%arrayType.length] + " \t \t");
+                    + arrays[j].length +" Array Type: "+ arrayType[j%arrayType.length] + " \t \t");
             System.out.println("----------------------------------------------------------------------");
             //Prints the first 10 of unsorted list to console
             for (int i = 0; i < 10 && i < arrays[j].length; i++) {
@@ -47,7 +64,26 @@ public class JUnitTest {
             }
             System.out.println("Sorting took: " + (end-start) + " milliseconds");
             System.out.println("======================================================================");
+
+            int caseNumber = j % 5;
+
+
+                switch (caseNumber) {
+                    case 0 -> randomArrayTimes[j/5] = end-start;
+                    case 1 -> halfSortedArrayTimes[j/5] = end-start;
+                    case 2 -> threeQuarterArrayTimes[j/5] = end-start;
+                    case 3 -> sortedArrayTimes[j/5] = end-start;
+                    case 4 -> reverseSortedArrayTimes[j/5] = end-start;
+
+                }
+
         }
+        // Create Chart
+        XYChart chart = QuickChart.getChart("Sample Chart", "X", "Y", "y(x)", arrayLengths, randomArrayTimes);
+
+        // Show it
+        new SwingWrapper(chart).displayChart();
+
     }
 
     @Test
@@ -102,11 +138,13 @@ public class JUnitTest {
         SelectionSort obj = new SelectionSort();
         testAnySort(obj);
     }
-//    @Test
-//    void testQuicksort() {
-//        Quicksort obj = new Quicksort();
-//        testAnySort(obj);
-//    }
+   /* @Test
+   void testQuicksort() {
+        Quicksort obj = new Quicksort();
+        testAnySort(obj);
+    }
+
+    */
 }
 
 

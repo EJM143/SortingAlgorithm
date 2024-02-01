@@ -37,6 +37,6 @@ public class BubbleSort implements SortingAlgoInterface {
      */
     @Override
     public String getName() {
-        return "BubbleSort";
+        return "Bubble Sort";
     }
 }
