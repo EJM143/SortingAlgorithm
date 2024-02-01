@@ -11,27 +11,25 @@ import java.util.List;
  * @version 1.0
  */
 public class RunTime {
-    private static int[][] arrays;
     private static List<Pair<Long, Integer>> randomArrayValues;
     private static List<Pair<Long, Integer>> halfSortedArrayValues;
     private static List<Pair<Long, Integer>> threeQuarterSortedValues;
     private static List<Pair<Long, Integer>> sortedArrayValues;
     private static List<Pair<Long, Integer>> reverseArrayValues;
-    private SortingAlgoInterface sortMethod;
+    private final SortingAlgoInterface sortMethod;
 
     /**
      * Constructor initializes various arraylists to hold data
      * @param sortMethod the sorting algorithm to use (must implement SortingAlgoInterface)
      */
-    public RunTime(SortingAlgoInterface sortMethod) {
+    public RunTime(SortingAlgoInterface sortMethod, int[][] arrays) {
         randomArrayValues = new ArrayList<>();
         halfSortedArrayValues = new ArrayList<>();
         threeQuarterSortedValues = new ArrayList<>();
         sortedArrayValues = new ArrayList<>();
         reverseArrayValues  = new ArrayList<>();
-        arrays = new TestData.Arrays().getAllArrays();
         this.sortMethod = sortMethod;
-        this.runAlgo();
+        this.runAlgo(arrays);
     }
 
     /**
@@ -50,7 +48,7 @@ public class RunTime {
     /**
      * Calculates runtime for all array sizes and types for this algorithm
      */
-    public void runAlgo() {
+    public void runAlgo(int[][] arrays) {
         for(int index = 0; index < arrays.length; index++) {
             int arraySize = arrays[index].length;
             long start = System.nanoTime();

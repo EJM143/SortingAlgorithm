@@ -1,6 +1,7 @@
 package Charts;
 
 import SortingAlgorithms.*;
+import TestData.Arrays;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -22,19 +23,20 @@ public class Charts extends Application {
     /**
      * RunTime variables created for each sorting method
      */
-    private static final RunTime bubbleRT = new RunTime(new BubbleSort());
-    private static final RunTime bucketRT = new RunTime(new BucketSort());
-    private static final RunTime countRT = new RunTime(new CountSort());
-    private static final RunTime heapRT = new RunTime(new HeapSort());
-    private static final RunTime insertionRT = new RunTime(new InsertionSort());
-    private static final RunTime mergeRT = new RunTime(new MergeSort());
+    private static final Arrays arrays = new TestData.Arrays();
+    private static final RunTime bubbleRT = new RunTime(new BubbleSort(), arrays.getAllArrays());
+    private static final RunTime bucketRT = new RunTime(new BucketSort(), arrays.getAllArrays());
+    private static final RunTime countRT = new RunTime(new CountSort(), arrays.getAllArrays());
+    private static final RunTime heapRT = new RunTime(new HeapSort(), arrays.getAllArrays());
+    private static final RunTime insertionRT = new RunTime(new InsertionSort(), arrays.getAllArrays());
+    private static final RunTime mergeRT = new RunTime(new MergeSort(), arrays.getAllArrays());
 //    private static final RunTime quickRT = new RunTime(new Quicksort());
 //    private static final RunTime quick1stRT = new RunTime(new Quicksort_FirstPivot());
 //    private static final RunTime quickMedianOf3RT = new RunTime(new Quicksort_MedianOf3());
 //    private static final RunTime quickRandomRT = new RunTime(new Quicksort_RandomPivot());
-    private static final RunTime radixRT = new RunTime(new RadixSort());
-    private static final RunTime selectionRT = new RunTime(new SelectionSort());
-    private static final RunTime shellRT = new RunTime(new ShellSort());
+    private static final RunTime radixRT = new RunTime(new RadixSort(), arrays.getAllArrays());
+    private static final RunTime selectionRT = new RunTime(new SelectionSort(), arrays.getAllArrays());
+    private static final RunTime shellRT = new RunTime(new ShellSort(),arrays.getAllArrays());
 
     public static void main(String[] args) {
         launch(args);
@@ -43,11 +45,11 @@ public class Charts extends Application {
     @Override
     public void start(Stage stage) {
         String[] arrayTypes = {"Random Array", "50% Sorted Array", "75% Sorted Array", "Sorted Array", "Reverse Sorted Array"};
-        LineChart<Number, Number> c1 = createLineChart(shellRT.getRandomArrayValues(), arrayTypes[0]);
-        LineChart<Number, Number> c2 = createLineChart(shellRT.getHalfSortedArrayValues(), arrayTypes[1]);
-        LineChart<Number, Number> c3 = createLineChart(shellRT.getThreeQuarterSortedValues(), arrayTypes[2]);
-        LineChart<Number, Number> c4 = createLineChart(shellRT.getSortedArrayValues(), arrayTypes[3]);
-        LineChart<Number, Number> c5 = createLineChart(shellRT.getReverseArrayValues(), arrayTypes[4]);
+        LineChart<Number, Number> c1 = createLineChart(radixRT.getRandomArrayValues(), arrayTypes[0]);
+        LineChart<Number, Number> c2 = createLineChart(radixRT.getHalfSortedArrayValues(), arrayTypes[1]);
+        LineChart<Number, Number> c3 = createLineChart(radixRT.getThreeQuarterSortedValues(), arrayTypes[2]);
+        LineChart<Number, Number> c4 = createLineChart(radixRT.getSortedArrayValues(), arrayTypes[3]);
+        LineChart<Number, Number> c5 = createLineChart(radixRT.getReverseArrayValues(), arrayTypes[4]);
 
         FlowPane root = new FlowPane();
         root.getChildren().addAll(c1, c2, c3, c4, c5);
