@@ -24,8 +24,8 @@ public class Main {
         HeapSort obj5 = new HeapSort();
         testAnySort(obj5);
 
-       // Quicksort obj6 = new Quicksort();
-       // testAnySort(obj6);
+       //Quicksort obj6 = new Quicksort();
+       //testAnySort(obj6);
 
         BubbleSort obj7 = new BubbleSort();
         testAnySort(obj7);
@@ -36,9 +36,17 @@ public class Main {
         ShellSort obj9 = new ShellSort();
         testAnySort(obj9);
 
-       // BucketSort obj2 = new BucketSort();
-       // testAnySort(obj2);
+       BucketSort obj2 = new BucketSort();
+       testAnySort(obj2);
 
+        Quicksort_FirstPivot obj10 = new Quicksort_FirstPivot();
+        testAnySort(obj10);
+
+        Quicksort_MedianOf3 obj11 = new Quicksort_MedianOf3();
+        testAnySort(obj11);
+
+        Quicksort_RandomPivot obj12 = new Quicksort_RandomPivot();
+        testAnySort(obj12);
 
     }
     public static void testAnySort(SortingAlgoInterface obj) {
