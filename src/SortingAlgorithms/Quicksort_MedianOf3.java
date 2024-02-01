@@ -101,7 +101,6 @@ public class Quicksort_MedianOf3 implements SortingAlgoInterface {
         }
     }
 
-    //TODO: add: do not process first and last or pivot
     /**
      * Places the pivot into its final spot and smaller items to the left and larger items to the right
      * @param arr   the array to be sorted
