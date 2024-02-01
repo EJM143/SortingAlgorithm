@@ -1,6 +1,7 @@
 package TestData;
 
 import SortingAlgorithms.Quicksort;
+import SortingAlgorithms.Quicksort_MedianOf3;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -52,7 +53,24 @@ class ArraysTest {
         assertEquals(Arrays.entryToLength(Arrays.MAX_SIZE), Arrays.MAX_SIZE);
         assertEquals(Arrays.entryToLength(Arrays.MAX_SIZE + 19), Arrays.MAX_SIZE);
 
+        Arrays b = new Arrays();
+        assertArrayEquals(b.getAllArrays(), b.getAllArrays());
 
+        int[] test1 = b.getRandomOrdered(32000);
+        int[] test2 = b.getRandomOrdered(32000);
+        assertArrayEquals(test1, test2);
+
+        Quicksort_MedianOf3.quicksort(test1);
+//        assertArrayEquals(test2, test1);
+        for (int num = 0; num <= 10; num++) {
+            System.out.println(test2[num]);
+            System.out.println(test1[num]);
+        }
+
+        System.out.println(java.util.Arrays.toString(b.getHalfSorted(16)));
+        System.out.println(java.util.Arrays.toString(b.getThreeQuartersSorted(16)));
+        System.out.println(java.util.Arrays.toString(b.getSorted(16)));
+        System.out.println(java.util.Arrays.toString(b.getReverseSorted(16)));
     }
 }
 
