@@ -1,6 +1,8 @@
 import SortingAlgorithms.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -26,6 +28,14 @@ public class JUnitTest {
             System.out.println();
             long start = System.currentTimeMillis();
             obj.sort(arrays[j]);
+
+//            System.out.println("[");
+//            for (int k = 0; k < 4; k++) {
+//                System.out.println(arrays[j][k]);
+//            }
+//            System.out.println("...]");
+
+
             long end = System.currentTimeMillis();
             // Checking if sorting really worked
             for (int i = 1; i < arrays[j].length; i++) {
@@ -45,11 +55,11 @@ public class JUnitTest {
         BubbleSort obj = new BubbleSort();
         testAnySort(obj);
     }
-    //@Test
-    //void testBucketSort() {
-    //   BucketSort obj = new BucketSort();
-    //    testAnySort(obj);
-    // }
+    @Test
+    void testBucketSort() {
+       BucketSort obj = new BucketSort();
+        testAnySort(obj);
+     }
 
     @Test
     void testCountSort() {
