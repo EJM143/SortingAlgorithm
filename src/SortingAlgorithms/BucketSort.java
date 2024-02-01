@@ -56,7 +56,7 @@ public class BucketSort implements SortingAlgoInterface {
      */
     @Override
     public String getName() {
-        return "BucketSort";
+        return "Bucket Sort";
     }
 }
 
